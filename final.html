@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffffff, #ffe4ec);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: cursive;
+}
+
+.box {
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 0 25px rgba(255,182,193,0.5);
+    max-width: 500px;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* buttons */
+button {
+    margin-top: 20px;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    background: #ff8fab;
+    color: white;
+}
+
+.big-btn {
+    font-size: 24px;
+    padding: 15px 30px;
+}
+
+/* fade */
+.fade {
+    opacity: 0;
+    transition: opacity 2s ease;
+}
+.show {
+    opacity: 1;
+}
+
+/* hidden */
+.hidden {
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <!-- STEP 1: INTRO -->
+    <p id="intro" class="fade">
+        I promise to stay with you in every moment of life,<br>  
+        to support you, love you, and never leave your side 💗<br><br>  
+
+        Everything became more beautiful...<br><br>  
+
+        You are my happiness, my peace,<br>  
+        and the reason behind my smile every day 🫂❤️  
+    </p>
+
+    <button id="startBtn" class="hidden">Few words for you dii ma 🫂💗</button>
+
+    <!-- STEP 2: MAIN MESSAGE -->
+    <p id="message" class="hidden fade">
+My dear future wife 💗<br><br>
+
+I want to spend my entire life with you dii ma…<br>
+Una thavira enakku yaarum illa dii ma… nee mattum pothum en life la 🫂<br><br>
+
+Namma rendu perum serndhu santhosham-a life live pannalam dii ma ❤️<br>
+athu nalam neyam naum sethu pathukalam dii ma..<br><br>
+
+I promise to love you forever…<br>
+I will be so happy to marry you dii ma 💍<br><br>
+
+I can't explain everything in text dii ma…<br>
+Konjam time kudu… seekiram meet pannalam 🥺🫂❤️
+    </p>
+
+    <button id="nextBtn" class="hidden">Next ❤️</button>
+
+    <!-- STEP 3: QUESTION -->
+    <div id="question" class="hidden fade">
+        <p>Do you want to spend your rest of life with me? 💗</p>
+        <button class="big-btn" onclick="goToLetter()">YES ❤️</button>
+    </div>
+
+</div>
+
+<script>
+
+const intro = document.getElementById("intro");
+const startBtn = document.getElementById("startBtn");
+const message = document.getElementById("message");
+const nextBtn = document.getElementById("nextBtn");
+const question = document.getElementById("question");
+
+// STEP 1: show intro
+setTimeout(() => intro.classList.add("show"), 200);
+setTimeout(() => startBtn.classList.remove("hidden"), 2500);
+
+// STEP 2: show message
+startBtn.onclick = () => {
+    intro.style.display = "none";
+    startBtn.style.display = "none";
+
+    message.classList.remove("hidden");
+
+    setTimeout(() => {
+        message.classList.add("show");
+    }, 100);
+
+    setTimeout(() => {
+        nextBtn.classList.remove("hidden");
+    }, 2500);
+};
+
+// STEP 3: show question
+nextBtn.onclick = () => {
+    message.style.display = "none";
+    nextBtn.style.display = "none";
+
+    question.classList.remove("hidden");
+
+    setTimeout(() => {
+        question.classList.add("show");
+    }, 100);
+};
+
+// FINAL → redirect
+function goToLetter() {
+    window.location.href = "letter.html";
+}
+
+</script>
+</body>
+</html>

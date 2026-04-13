@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Memories ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background: black;
+}
+
+/* 🌟 image */
+.photo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) scale(0.9);
+    opacity: 0;
+
+    border-radius: 15px;
+
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5),
+                0 0 60px rgba(255, 215, 0, 0.2);
+
+    transition: all 1.5s ease-in-out;
+    z-index: 1;
+}
+
+/* sizes */
+.portrait { width: 240px; }
+.landscape { width: 360px; }
+
+/* fade in */
+.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* fade out */
+.hide {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* 💖 emoji rain */
+.emoji {
+    position: absolute;
+    font-size: 20px;
+    animation: fall linear forwards;
+    opacity: 0.9;
+    z-index: 999;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<script>
+const images = [
+    {src: "assets/pic11.jpg", type: "portrait"},
+    {src: "assets/pic22.jpg", type: "portrait"},
+    {src: "assets/pic33.jpg", type: "portrait"},
+    {src: "assets/pic7.jpg", type: "portrait"},
+
+    {src: "assets/pic4.jpg", type: "landscape"},
+    {src: "assets/pic5.jpg", type: "landscape"},
+    {src: "assets/pic6.jpg", type: "landscape"},
+    {src: "assets/pic8.jpg", type: "landscape"},
+    {src: "assets/pic9.jpg", type: "landscape"}
+];
+
+let i = 0;
+
+function showImage() {
+
+    if (i >= images.length) {
+        setTimeout(() => {
+            window.location.href = "final.html";
+        }, 2000);
+        return;
+    }
+
+    const img = document.createElement("img");
+    img.src = images[i].src;
+    img.className = "photo " + images[i].type;
+
+    document.body.appendChild(img);
+
+    // STEP 1: Fade in
+    setTimeout(() => {
+        img.classList.add("show");
+    }, 100);
+
+    // STEP 2: Stay visible then fade out
+    setTimeout(() => {
+        img.classList.remove("show");
+        img.classList.add("hide");
+    }, 3500); // visible time
+
+    // STEP 3: Remove after fade out
+    setTimeout(() => {
+        img.remove();
+        i++;
+        showImage(); // next image
+    }, 5000); // total cycle
+}
+
+// start
+showImage();
+
+
+/* 💖 emoji rain */
+const emojis = ["💗","💋","❤️","🫂","🥺"];
+
+function createEmoji() {
+    const e = document.createElement("div");
+    e.className = "emoji";
+    e.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+    e.style.left = Math.random() * 100 + "vw";
+    e.style.animationDuration = (6 + Math.random() * 3) + "s";
+
+    document.body.appendChild(e);
+
+    setTimeout(() => e.remove(), 9000);
+}
+
+// smoother emoji flow
+setInterval(createEmoji, 500);
+</script>
+
+</body>
+</html>

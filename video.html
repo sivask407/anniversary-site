@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Memories ❤️</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: linear-gradient(to right, #ffffff, #ffe6f0);
+            font-family: 'Segoe UI', cursive;
+        }
+
+        /* Frame with exact 3:2 ratio */
+        .frame {
+            width: 300px;
+            aspect-ratio: 3 / 2;
+
+            position: relative;
+            overflow: hidden;
+
+            border-radius: 20px;
+            box-shadow: 0 0 25px rgba(255, 77, 109, 0.3);
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            opacity: 0;
+            transform: scale(1.05);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+        }
+
+        .active {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="frame">
+        <img src="assets/pic1.jpg" class="slide active">
+        <img src="assets/pic2.jpg" class="slide">
+        <img src="assets/pic3.jpg" class="slide">
+    </div>
+
+    <script>
+        const slides = document.querySelectorAll(".slide");
+        let index = 0;
+
+        function showSlide() {
+            slides[index].classList.remove("active");
+
+            index++;
+
+            if (index >= slides.length) {
+                window.location.href = "message.html";
+                return;
+            }
+
+            slides[index].classList.add("active");
+        }
+
+        setInterval(showSlide, 5000);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>My Letter ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to bottom, #ffffff, #ffe4ec);
+    color: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: cursive;
+}
+
+/* box */
+.box {
+    padding: 40px;
+    max-width: 520px;
+    border-radius: 25px;
+    background: white;
+    box-shadow: 0 0 30px rgba(255,182,193,0.5);
+    line-height: 1.8;
+
+    /* animation */
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+    animation: smoothFade 2s ease forwards, glow 3s ease-in-out infinite;
+}
+
+/* fade + slide */
+@keyframes smoothFade {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* soft glowing effect */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 20px rgba(255,182,193,0.4);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(255,105,180,0.6);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(255,182,193,0.4);
+    }
+}
+
+p {
+    font-size: 20px;
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="box">
+    <p>
+        My love ❤️<br><br>
+
+        I don’t know how to explain everything in words…  
+        but I truly feel lucky to have you in my life 🫂<br><br>
+
+        You are not just my love,  
+        you are my peace, my happiness, my everything 💗<br><br>
+
+        I promise to stand with you,  
+        support you, and love you forever 💍<br><br>
+
+        No matter what happens,  
+        I will always choose you ❤️<br><br>
+
+        — Yours forever 💖
+    </p>
+</div>
+</body>
+</html>
